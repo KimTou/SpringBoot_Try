@@ -1,31 +1,28 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<meta name="description" content="">
-		<meta name="author" content="">
-		<title>网管队招新</title>
-		<!-- Bootstrap core CSS -->
-		<link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
-		<!-- Custom styles for this template -->
-		<link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
-	</head>
+<head>
+    <meta charset="UTF-8">
+    <title>报名</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+<form class="form-signin" action="#" th:action="@{/user/result}" method="post">
 
-	<body class="text-center">
-		<form class="form-signin" action="#" th:action="@{/user/login}" method="post">
-			<img class="mb-4" th:src="@{/asserts/img/bootstrap-solid.svg}" src="asserts/img/bootstrap-solid.svg" alt="" width="72" height="72">
-			<h1 class="h3 mb-3 font-weight-normal" >[[#{login.title}]]</h1>
-			<!--判断：当msg不为空时出现提示-->
-			<p style="color: red" th:text="${msg}" th:if="${not #strings.isEmpty(msg)}"></p>
+    <h1 class="h3 mb-3 font-weight-normal">请填写以下信息</h1>
+    <!--判断：当condition不为空时出现提示-->
+    <p style="color: red" th:text="${condition}" th:if="${not #strings.isEmpty(condition)}"></p>
+    <p class="sr-only">姓名</p>
+    <input type="text" name="userName" class="form-control" placeholder="Username" th:placeholder="请填写你的姓名" required=""
+           autofocus=""><br>
+    <p class="sr-only">学号</p>
+    <input type="text" name="uId" class="form-control" placeholder="学号" th:placeholder="请填写你的学号" required=""><br>
 
-			<a class="btn btn-lg btn-primary btn-block" th:text="#{login.button1}" th:href="@{register.html}">我要报名</a><br>
-			<a class="btn btn-lg btn-danger btn-block" th:text="#{login.button2}" >查询结果</a>
-			<p class="mt-5 mb-3 text-muted">© 2019-2020</p>
-			<a class="btn btn-sm" th:href="@{/login.html(l='zh_CN')}">中文</a>
-			<a class="btn btn-sm" th:href="@{/login.html(l='en_US')}">English</a>
-		</form>
+    <button class="btn btn-lg btn-success btn-block" type="submit" th:text="提交">提交</button>
 
-	</body>
-
+    <p class="mt-5 mb-3 text-muted">© 网管队宣策组</p>
+</form>
+</body>
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>成功页面</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+
+<form class="form-signin" action="#" method="post">
+
+    <h1 class="h3 mb-3 font-weight-normal">当前状态</h1>
+    <!--判断：当condition不为空时出现提示-->
+    <p th:text="${condition}" th:if="${not #strings.isEmpty(condition)}"></p>
+
+    <p class="mt-5 mb-3 text-muted">© 网管队宣策组</p>
+</form>
+
+</body>
+</html>

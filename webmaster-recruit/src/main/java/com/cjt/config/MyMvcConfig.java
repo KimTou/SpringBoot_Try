@@ -19,22 +19,24 @@ public class MyMvcConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public WebMvcConfigurer webMvcConfigurer(){
+    public WebMvcConfigurer webMvcConfigurer() {
         WebMvcConfigurer webMvcConfigurer = new WebMvcConfigurer() {
             @Override
             public void addViewControllers(ViewControllerRegistry registry) {
                 registry.addViewController("/").setViewName("index");
                 registry.addViewController("/index.html").setViewName("index");
-                registry.addViewController("/login.html").setViewName("login");
+                registry.addViewController("/function.html").setViewName("function");
                 registry.addViewController("/register").setViewName("register");
                 registry.addViewController("/register.html").setViewName("register");
+                registry.addViewController("/login").setViewName("login");
+                registry.addViewController("/login.html").setViewName("login");
             }
         };
         return webMvcConfigurer;
     }
 
     @Bean
-    public LocaleResolver localeResolver(){
+    public LocaleResolver localeResolver() {
         return new MyLocaleResolver();
     }
 
