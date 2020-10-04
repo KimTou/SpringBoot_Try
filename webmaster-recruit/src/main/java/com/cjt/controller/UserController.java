@@ -32,12 +32,16 @@ public class UserController {
             //回到当前页面
             return "register";
         }
-        //通过学号来查询是否已报名，并检查学号是否符合格式
-        else if (userService.findUserByUId(user.getUId()) != null) {
-            model.addAttribute("condition", "你已报名过 或 学号格式有误");
+        //通过学号和姓名来查询是否已报名，并检查学号是否符合格式
+        else if (userService.findUserByUId(user.getUId()) != null||
+                userService.findUserByUserName(user.getUserName())!=null) {
+            model.addAttribute("condition", "你已报名过");
             return "register";
         }
-        userService.insertUser(user);
+        else if(userService.insertUser(user)==-1){
+            model.addAttribute("condition", "学号格式有误");
+            return "register";
+        }
         //获取主键值需通过访问对象获取，而不是通过函数返回值获取
         //System.out.println(user.getId());
         model.addAttribute("condition", "报名成功");

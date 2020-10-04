@@ -12,7 +12,6 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-
     @Override
     public User findUserByUserName(String userName) {
         return userMapper.findUserByUserName(userName);
@@ -20,16 +19,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findUserByUId(String uId) {
-        String regexUId = "3[12][0-9]{8}";
-        //判断学号是否符合格式
-        if(!uId.matches(regexUId)){
-            return null;
-        }
         return userMapper.findUserByUId(uId);
     }
 
     @Override
     public int insertUser(User user) {
+        String regexUId = "3[12][0-9]{8}";
+        //判断学号是否符合格式
+        if(!user.getUId().matches(regexUId)){
+            return -1;
+        }
         user.setResult("请耐心等待呀，我们会尽快公布结果的~");
         return userMapper.insertUser(user);
     }
