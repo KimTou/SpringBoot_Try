@@ -27,5 +27,7 @@ public class User implements Serializable {
     private String major;
     @ApiModelProperty("用户个人介绍")
     private String resume;
+    @ApiModelProperty("招新结果")
+    private String result;
 
 }

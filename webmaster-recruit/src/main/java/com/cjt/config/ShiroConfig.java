@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Configuration
 public class ShiroConfig {
 
@@ -14,6 +17,14 @@ public class ShiroConfig {
         ShiroFilterFactoryBean bean = new ShiroFilterFactoryBean();
         //设置安全管理器
         bean.setSecurityManager(defaultWebSecurityManager);
+        //设置shiro内置过滤器
+        Map<String,String> filterMap = new LinkedHashMap<>();
+        //报名不需要登录验证
+        filterMap.put("/user/register","anon");
+        //其他都需要认证
+        filterMap.put("/user/*","authc");
+        bean.setFilterChainDefinitionMap(filterMap);
+        bean.setLoginUrl("/toLogin");
         return bean;
     }
 
