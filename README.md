@@ -5,9 +5,9 @@
 
 
 
-### webmaster-recruit
+### club-recruit
 
-* 网管队宣策组招新系统（假）
+* 社团招新系统
 
 * 项目使用SpringBoot+Mybatis+Shiro等技术实现
 
