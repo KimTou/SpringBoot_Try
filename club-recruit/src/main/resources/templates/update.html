@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询修改报名信息</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+<form class="form-signin" action="#" th:action="@{/user/update}" method="post">
+
+    <h1 class="h3 mb-3 font-weight-normal">报名信息</h1>
+    <!--判断：当condition不为空时出现提示-->
+    <p style="color: red" th:text="${condition}" th:if="${not #strings.isEmpty(condition)}"></p>
+
+    <label class="sr-only">姓名</label>
+    <input type="text" name="userName" class="form-control" th:placeholder="请填写你的姓名" th:value="${user.userName}"><br>
+    <label class="sr-only">学号</label>
+    <input type="text" hidden name="uId" class="form-control" th:placeholder="请填写你的学号" th:value="${user.uId}"><br>
+    <label class="sr-only">专业班级</label>
+    <input type="text" name="major" class="form-control" th:placeholder="请填写专业班级" th:value="${user.major}"><br>
+    <label class="sr-only">个人介绍</label>
+    <input type="text" name="resume" class="form-control" th:placeholder="请填写个人介绍" th:value="${user.resume}"><br>
+
+    <button class="btn btn-lg btn-success btn-block" type="submit" th:text="修改">修改</button>
+
+    <p class="mt-5 mb-3 text-muted">© KimTou</p>
+</form>
+</body>
+</html>

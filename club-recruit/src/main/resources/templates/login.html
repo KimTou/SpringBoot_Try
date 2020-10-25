@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>报名</title>
+    <!-- Bootstrap core CSS -->
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="asserts/css/signin.css" th:href="@{/asserts/css/signin.css}" rel="stylesheet">
+</head>
+<body class="text-center">
+<form class="form-signin" action="#" th:action="@{/login}" method="post">
+
+    <h1 class="h3 mb-3 font-weight-normal">请填写以下信息</h1>
+    <!--判断：当condition不为空时出现提示-->
+    <p style="color: red" th:text="${condition}" th:if="${not #strings.isEmpty(condition)}"></p>
+    <p class="sr-only">姓名</p>
+    <input type="text" name="userName" class="form-control" placeholder="Username" th:placeholder="请填写你的姓名" required=""
+           autofocus=""><br>
+    <p class="sr-only">学号</p>
+    <input type="text" name="uId" class="form-control" placeholder="学号" th:placeholder="请填写你的学号" required=""><br>
+
+    <button class="btn btn-lg btn-success btn-block" type="submit" th:text="提交">提交</button>
+
+    <p class="mt-5 mb-3 text-muted">© KimTou</p>
+</form>
+</body>
+</html>
